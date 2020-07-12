@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 
 const StyledButton = styled.button`
+    margin-top:2rem;
     display: flex;
     justify-content: center;
     align-items: center;
