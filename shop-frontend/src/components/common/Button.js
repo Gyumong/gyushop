@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled,{css} from 'styled-components';
 import palette from '../../lib/styles/palette';
 
 const StyledButton = styled.button`
@@ -23,6 +23,16 @@ const StyledButton = styled.button`
         
         opacity: 0.5;
     }
+
+    ${props =>
+        props.fullWidth &&
+        css`
+            padding-top:0.75rem;
+            padding-bottom:0.75rem;
+            width:100%;
+            font-size:1.125rem;
+        `}
+    
 `;
 
 const Button = props => <StyledButton {...props} />;

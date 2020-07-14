@@ -15,6 +15,18 @@ const AuthFormBlock= styled.div`
     display:flex;
     flex-direction:column;
    }
+
+   footer{
+       display:flex;
+       justify-content:flex-end;
+       align-items:center;
+
+       a{
+           margin-top:1rem;
+           color:${palette.gray[9]};
+           text-decoration:underline;
+       }
+   }
 `;
 
 const StyledInput= styled.input`
@@ -32,15 +44,37 @@ const StyledInput= styled.input`
     }
 `;
 
-const AuthForm = ()=>{
+const textMap= {
+    login:'로그인',
+    register:'회원가입',
+};
+
+
+const AuthForm = ({type})=>{
+    const text= textMap[type];
     return(
         <AuthFormBlock>
-            <h3>로그인</h3>
+            <h3>{text}</h3>
             <form>
                 <StyledInput autoComplate="uesrname" name="username" placeholder="아이디" />
                 <StyledInput autoComplate="new-password" name="password" placeholder="비밀번호" type="password" />
-                <Button>로그인</Button>
+                {type ==='register' &&(
+                    <StyledInput 
+                        autoComplete="new-password"
+                        name="passwordConfirm"
+                        placeholder="비밀번호 확인"
+                        type="password"
+                        />
+                )}
+                <Button fullWidth>{text}</Button>
             </form>
+            <footer>
+                {type==='login'?(
+                    <Link to ="/register">회원가입</Link>
+                    ):(
+                        <Link to="/login">로그인</Link>
+                    )}
+            </footer>
         </AuthFormBlock>
     );
 };
