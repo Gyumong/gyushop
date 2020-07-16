@@ -2,6 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 import {Link} from 'react-router-dom';
+import { generateMedia } from "styled-media-query";
+const customMedia= generateMedia({
+    huge: '1440px',
+    large: '1170px',
+    medium: '768px',
+    small: '450px',
+});
 
 const AuthTemplateBlock= styled.div`
     position:absolute;
@@ -29,6 +36,9 @@ const WhiteBox= styled.div`
         padding:20px;
         
     }
+    ${customMedia.lessThan('medium')`
+        width:400px;
+    `}
 
 `;
 
