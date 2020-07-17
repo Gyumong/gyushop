@@ -35,7 +35,7 @@ const Header = ({user, onLogout})=>{
         <>
             <HeaderBlock>
                 <Wrapper>
-                    <Link to ="/">GyuShop</Link>
+                    <Link to ="/">GyuShop1</Link>
                     {user ? (
                         <div className="right">
                         <UserInfo>{user.username}</UserInfo>
