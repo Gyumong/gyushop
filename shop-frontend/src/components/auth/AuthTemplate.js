@@ -2,13 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 import {Link} from 'react-router-dom';
-import { generateMedia } from "styled-media-query";
-const customMedia= generateMedia({
-    huge: '1440px',
-    large: '1170px',
-    medium: '768px',
-    small: '450px',
-});
+
 
 const AuthTemplateBlock= styled.div`
     position:absolute;
@@ -27,26 +21,34 @@ const WhiteBox= styled.div`
 
     width:590px;
     height:auto;
-    margin:50px auto;
+    margin:50px auto;;
     background:${palette.red[1]};
-    h1{
+
+    @media(max-width:768px){
+        width:400px;
+    }
+`;
+
+const StyledLink = styled(Link)`
+        font-size:30px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
         font-weight:500;
         letter-spacing:-0.01em;
         text-align:center;
-        padding:20px;
+        padding:0 auto;
+        margin-top:1rem;
+        margin-bottom:1rem;
         
-    }
-    ${customMedia.lessThan('medium')`
-        width:400px;
-    `}
-
+    
 `;
 
 const AuthTemplate= ({children})=>{
     return(
         <AuthTemplateBlock>
             <WhiteBox>
-            <h1>Gyu shop</h1>
+            <StyledLink to ="/">Gyu shop</StyledLink>
             {children}
             </WhiteBox>
         </AuthTemplateBlock>
