@@ -1,10 +1,13 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {Route} from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 
 import {createGlobalStyle} from 'styled-components';
+import axios from 'axios';
+
+import Users from './components/common/Users';
 
 const GlobalStyles = createGlobalStyle`
 
@@ -47,12 +50,16 @@ li{
 `;
 
 const App=()=>{
+ 
+
   return(
     <>
       <GlobalStyles/>
       <Route component={LandingPage} path="/" exact/>
       <Route component={LoginPage} path="/login" />
       <Route component={RegisterPage} path="/register" />
+      <Users />
+ 
     </>
   );
 };
