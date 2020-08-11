@@ -1,15 +1,15 @@
 import React,{useState,useEffect} from 'react';
-import {Route} from 'react-router-dom';
+import {Route,Switch} from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
-
+import MovieDetail from './components/MovieDetail/MovieDetail'
 import {createGlobalStyle} from 'styled-components';
 import axios from 'axios';
+import HeaderContainer from './containers/common/HeaderContainer';
 
-import Users from './components/common/Users';
 
-const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
 
 body{
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
@@ -55,11 +55,15 @@ const App=()=>{
   return(
     <>
       <GlobalStyles/>
+      <HeaderContainer/>
+
+      <div style={{ paddingTop: '69px', minHeight: 'calc(100vh - 80px)' }}>
       <Route component={LandingPage} path="/" exact/>
       <Route component={LoginPage} path="/login" />
       <Route component={RegisterPage} path="/register" />
-      <Users />
- 
+      <Route component={MovieDetail} path="/movie/:movieId"/>
+      </div>
+
     </>
   );
 };

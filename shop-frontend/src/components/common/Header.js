@@ -4,21 +4,19 @@ import Responsive from './Responsive';
 import Button from './Button';
 import {Link} from 'react-router-dom';
 const HeaderBlock = styled.div`
-    position: fixed;
-    width:100%;
+    position:fixed;
+    z-index:5;
+    margin-bottom:4rem;
+    top:0;
+    left:0;
+    right:0;
     background:#fff;
     box-shadow:0px 2px 4px rgba(0,0,0,0.08);
-`;
-
-const Wrapper = styled(Responsive)`
-    height:4rem;
+    height: 75px;
+    padding:1rem;
     display:flex;
-    align-items:center;
     justify-content:space-between;
-    .right{
-        display:flex;
-        align-items:center;
-    }
+    align-items:center;
 `;
 
 const Spacer = styled.div`
@@ -34,7 +32,7 @@ const Header = ({user, onLogout})=>{
     return (
         <>
             <HeaderBlock>
-                <Wrapper>
+
                     <Link to ="/">GyuShop</Link>
                     {user ? (
                         <div className="right">
@@ -47,9 +45,9 @@ const Header = ({user, onLogout})=>{
                         </div>
 
                     )}
-                </Wrapper>
+
             </HeaderBlock>
-            <Spacer />
+
         </>
     );
 };

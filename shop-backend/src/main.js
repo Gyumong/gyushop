@@ -8,7 +8,10 @@ import api from './api';
 import jwtMiddleware from './lib/jwtMiddleware';
 
 
+
 const app = new Koa();
+const cors = require('@koa/cors');
+app.use(cors());
 const router = new Router();
 // 비구조화 할당을 통해 process.env 내부 값에 대한 레퍼런스 만들기
 const {PORT,MONGO_URI} = process.env;
